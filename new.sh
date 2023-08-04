@@ -16,14 +16,24 @@ add_record()
 {
 	echo "Enter name"
 	read name
+
 	echo "Enter Eid"
 	read Enum
 	echo "Enter Telephone number"
 	read Tnum
 	
-	echo "${name},${Enum},${Tnum}">>"$Records"
+	if grep -q "^.*,${Enum},.*$" "$Records"; then
+		echo "--------------------------------Already existing---------------------------"
+	else
+	
+		echo "${name},${Enum},${Tnum}" >> "$Records"
+	fi
 
-	echo "                                                    ----------Records  added   Successfully------------"
+
+
+
+
+	echo	"----------Records  added   Successfully------------"
 
 }
 delete_record()
@@ -52,6 +62,7 @@ list_records()
 {
 	cat "$Records"
 }
+
 while true; do
 	print_menu
 
