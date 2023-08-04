@@ -23,7 +23,7 @@ add_record()
 	
 	echo "${name},${Enum},${Tnum}">>"$Records"
 
-	echo "----------Records  added   Successfully------------"
+	echo "                                                    ----------Records  added   Successfully------------"
 
 }
 delete_record()
@@ -33,7 +33,7 @@ delete_record()
 
 	grep -v "^.*,$Enum,.*$" "$Records"> temp.txt 
 	mv temp.txt "$Records"
-	echo "------------------Records deleted Successfully----------------------"
+	echo "                                  ------------------Records deleted Successfully----------------------"
 }
 search_record()
 {
