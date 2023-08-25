@@ -31,7 +31,7 @@ int main()
    }
 
    //write more 10B
-   const char d2[]="Swarnim Kukreti";
+   const char d2[]="SwarnimKukreti";
    byt = write(fd, d2, sizeof(d2) -1);
    if(byt==-1)
    {
