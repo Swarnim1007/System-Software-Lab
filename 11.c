@@ -1,48 +1,44 @@
-#include <stdio.h>
-#include <stdlib.h>
-#include <fcntl.h>
-#include <unistd.h>
+#include<stdio.h>
+#include<stdlib.h>
+#include<unistd.h>
+#include<fcntl.h>
+#include<string.h>
+void appendDescriptorToFile(int fd, char *descriptorType) {
+    char descriptor_str[20];
+    snprintf(descriptor_str, sizeof(descriptor_str), "%s %d\n",descriptorType, fd);
 
-void print_opening_mode(int fd) {
-    int flags = fcntl(fd, F_GETFL);
-
-    if (flags == -1) {
-        perror("Error getting file flags");
+    if (write(fd, descriptor_str, strlen(descriptor_str)) == -1) {
+        perror("Error writing descriptor");
         exit(1);
     }
-
-    if (flags & O_RDONLY)
-        printf("Read-only mode\n");
-    else if (flags & O_WRONLY)
-        printf("Write-only mode\n");
-    else if (flags & O_RDWR)
-        printf("Read-write mode\n");
-    else
-        printf("Unknown mode\n");
-
-    if (flags & O_APPEND)
-        printf("Append mode\n");
-    if (flags & O_TRUNC)
-        printf("Truncate mode\n");
-    if (flags & O_CREAT)
-        printf("Create mode\n");
 }
 
-int main(int argc, char *argv[]) {
-    if (argc != 2) {
-        printf("Usage: %s <filename>\n", argv[0]);
+int main() {
+    const char *filename = "testfile.txt";
+
+    int original_fd = open(filename, O_WRONLY | O_CREAT | O_TRUNC, 0644);
+
+    if (original_fd == -1) {
+        perror("Error opening file");
         return 1;
     }
+   
+    int dup_fd = dup(original_fd);
 
-    int fd = open(argv[1], O_RDONLY);
-    if (fd == -1) {
-        perror("Error opening the file");
-        return 1;
-    }
+    
+    int dup2_fd = dup2(original_fd, 3);
 
-    print_opening_mode(fd);
+    int fcntl_fd = fcntl(original_fd, F_DUPFD, 0);
 
-    close(fd);
+    appendDescriptorToFile(original_fd, "Original fd: ");
+    appendDescriptorToFile(dup_fd,"Duplicate fd: ");
+    appendDescriptorToFile(dup2_fd,"Duplicate fd 2:" );
+    appendDescriptorToFile(fcntl_fd, "Fcntl: ");
+
+    close(original_fd);
+    close(dup_fd);
+    close(dup2_fd);
+    close(fcntl_fd);
 
     return 0;
 }

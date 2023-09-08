@@ -15,7 +15,7 @@ int main()
 	}
 	else
 	{
-		printf("file opened successfully in RM          ");
+		printf("file opened successfully in RM   with fd %d\n       ",frd);
 		
 		close(frd);
 	}
@@ -33,7 +33,7 @@ int main()
 			}
 	}
 		else
-		{printf("File opened successfully  with O_EXCL flag           ");
+		{printf("File opened successfully  with O_EXCL flag  %d \n   ",fwd);
 			close(fwd);
 		}
 		return 0;

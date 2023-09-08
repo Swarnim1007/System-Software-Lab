@@ -10,7 +10,7 @@ int main()
 	{perror("Error on creating file");
 		return 1;
 	}
-	printf("file created successfully");
+	printf("file created successfully with discriptor value %d",fd);
 
 	if(close(fd)==-1)
 	{
