@@ -15,13 +15,23 @@ int main() {
 	lock.l_len=0;
 	lock.l_pid=getpid();
 	printf("Before entering into critical section\n");
-	fcntl(fd, F_SETLKW, &lock);
+	if(fcntl(fd, F_SETLKW, &lock)==-1)
+	{
+		perror("error acquiring read lock");
+		close(fd);
+		return 1;
+	}
 	printf("Inside the critical section....\n");
 	printf("Enter to unlock...\n");
 	getchar();
 	printf("unlocked...\n");
 	lock.l_type=F_UNLCK;
-	fcntl(fd, F_SETLK, &lock);
+	if(fcntl(fd, F_SETLK, &lock)==-1)
+	{
+		perror("error releasing read lock");
+		close(fd);
+		return 1;
+	}
 	printf("finish\n");
 }
 
