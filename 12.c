@@ -1,4 +1,11 @@
-//Hands on 1: Assignment No.12 - Find out the opening mode of a file Using fcntl
+/*
+============================================================================
+Name : 12.c
+Author : Swarnim Kukreti
+Description :Write a program to find out the opening mode of a file. Use fcntl 
+Date: 9th Sep, 2023.
+============================================================================
+*/
 #include <stdio.h>
 #include <stdlib.h>
 #include <fcntl.h>

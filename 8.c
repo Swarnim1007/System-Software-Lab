@@ -1,3 +1,12 @@
+/*
+============================================================================
+Name : 8.c
+Author : Swarnim Kukreti
+Description :Write a program to open  file in read only mode,read line by line and display each line as it is read.Close the file when end of file is reached. 
+Date: 9th Sep, 2023.
+============================================================================
+*/
+
 #include <sys/types.h>
 #include <sys/stat.h>
 #include <fcntl.h>

@@ -1,4 +1,11 @@
-
+/*
+============================================================================
+Name : 24.c
+Author : Swarnim Kukreti
+Description :Write a program to create an orphan process. 
+Date: 9th Sep, 2023.
+============================================================================
+*/
 #include<stdio.h>
 #include <sys/types.h>
 #include <unistd.h>

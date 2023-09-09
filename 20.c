@@ -1,3 +1,11 @@
+/*
+============================================================================
+Name : 20.c
+Author : Swarnim Kukreti
+Description :Find out the priority of your running program. Modify the priority with nice command. 
+Date: 9th Sep, 2023.
+============================================================================
+*/
 #include <stdio.h>
 #include <stdlib.h>
 #include <sys/resource.h>
@@ -5,9 +13,6 @@
 
 int main() {
     int priority;
-    // int pid;
-       // printf("Enter PID: ");
-       // scanf("%d",&pid);
     // Get the current priority of the process
     priority = getpriority(PRIO_PROCESS, getpid());
     if (priority == -1) {

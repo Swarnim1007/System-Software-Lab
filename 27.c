@@ -1,3 +1,16 @@
+/*
+============================================================================
+Name :27.c
+Author : Swarnim Kukreti
+Description :Write a program to execute ls -Rl by the following system calls 
+	a. execl
+	b. execlp
+	c. execle
+       	d. execv 
+       	e. execvp	
+Date: 9th Sep, 2023.
+============================================================================
+*/
 #include <stdio.h>
 #include <stdlib.h>
 #include <unistd.h>

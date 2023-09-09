@@ -1,3 +1,11 @@
+/*
+============================================================================
+Name : 28.c
+Author : Swarnim Kukreti
+Description :Write a program to get maximum and minimum real time priority. 
+Date: 9th Sep, 2023.
+============================================================================
+*/
 #define _GNU_SOURCE // Required for sched_get_priority_max and sched_get_priority_min
 #include <stdio.h>
 #include <stdlib.h>

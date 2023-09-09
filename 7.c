@@ -1,3 +1,12 @@
+/*
+============================================================================
+Name : 7.c
+Author : Swarnim Kukreti
+Description :Write a program to copy file1 into file2 ($cp file1 file2). 
+Date: 9th Sep, 2023.
+============================================================================
+*/
+
 #include <sys/types.h>
 #include <sys/stat.h>
 #include <fcntl.h>

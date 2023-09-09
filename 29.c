@@ -1,3 +1,11 @@
+/*
+============================================================================
+Name : 29.c
+Author : Swarnim Kukreti
+Description :Write a program to get scheduling policy and modify the scheduling policy (SCHED_FIFO, SCHED_RR). 
+Date: 9th Sep, 2023.
+============================================================================
+*/
 #define _GNU_SOURCE // Required for sched_getscheduler and sched_setscheduler
 #include <stdio.h>
 #include <stdlib.h>
