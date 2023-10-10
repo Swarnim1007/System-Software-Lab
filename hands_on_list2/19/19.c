@@ -1,4 +1,14 @@
-#include <stdio.h>
+/*
+============================================================================
+Name : 19
+Author :Swarnim Kukreti
+Description : Create a FIFO file by
+a. mknod system call
+b. mkfifo library function
+Date: 10-october-2023
+============================================================================
+*/
+
 #include <stdlib.h>
 #include <unistd.h>
 #include <sys/stat.h>

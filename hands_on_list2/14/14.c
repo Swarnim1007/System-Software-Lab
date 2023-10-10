@@ -1,4 +1,12 @@
-#include <stdio.h>
+/*
+============================================================================
+Name : 14
+Author :Swarnim Kukreti
+Description : Write a simple program to create a pipe, write to the pipe, read from pipe and display on
+the monitor.
+Date: 10-october-2023
+============================================================================
+*/
 #include <stdlib.h>
 #include <unistd.h>
 #include <string.h>

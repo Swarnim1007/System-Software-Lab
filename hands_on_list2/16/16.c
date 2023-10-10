@@ -1,3 +1,13 @@
+/*
+============================================================================
+Name : 16
+Author :Swarnim Kukreti
+Description : Write a program to send and receive data from parent to child vice versa. Use two way
+communication.
+Date: 10-october-2023
+============================================================================
+*/
+
 #include <stdio.h>
 #include <stdlib.h>
 
