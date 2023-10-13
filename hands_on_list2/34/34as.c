@@ -1,6 +1,6 @@
 /*
  * ============================================================================
- Name : 34a.c
+ Name : 34as.c
  Author : Swarnim Kukreti
  Description : Write a program to create a concurrent server.
 a. use fork

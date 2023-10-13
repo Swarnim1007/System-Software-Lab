@@ -1,3 +1,13 @@
+/*
+ * ============================================================================
+ Name : 34ac.c
+ Author : Swarnim Kukreti
+ Description : Write a program to create a concurrent server.
+a. use fork
+ Date: 12th OCT, 2023.
+============================================================================
+*/
+
 #include <stdio.h>
 #include <stdlib.h>
 #include <string.h>

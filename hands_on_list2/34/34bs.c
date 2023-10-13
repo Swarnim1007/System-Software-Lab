@@ -1,6 +1,6 @@
 /*
  * ============================================================================
- Name : 34b.c
+ Name : 34bs.c
  Author : Swarnim Kukreti
  Description : Write a program to create a concurrent server.
  b. use pthread_create

@@ -1,3 +1,13 @@
+/*
+ * ============================================================================
+ Name : 34bc.c
+ Author : Swarnim Kukreti
+ Description : Write a program to create a concurrent server.
+b. using threads
+ Date: 12th OCT, 2023.
+============================================================================
+*/
+
 #include <stdio.h>
 #include <stdlib.h>
 #include <string.h>
