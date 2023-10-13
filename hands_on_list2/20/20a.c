@@ -18,8 +18,8 @@ Date: 10-october-2023
 
 int main() {
     // Create or open the FIFO (named pipe)
-    char *fifoPath = "myfifo";  // Replace with your desired FIFO name
-    mkfifo(fifoPath, 0666);     // Create FIFO with read and write permissions
+    char *fifoPath = "myfifo";  
+    mkfifo(fifoPath, 0666);   
 
     // Open the FIFO for writing
     int fd = open(fifoPath, O_WRONLY);

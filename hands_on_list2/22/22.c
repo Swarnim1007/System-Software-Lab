@@ -17,7 +17,7 @@ Date: 10-october-2023
 #include <sys/select.h>
 #include <string.h>
 
-#define FIFO_PATH "myfifo" // Replace with your desired FIFO name
+#define FIFO_PATH "myfifo" 
 #define TIMEOUT_SECONDS 10 // Adjust the timeout value as needed
 
 int main() {
@@ -68,3 +68,4 @@ int main() {
 
     return 0;
 }
+

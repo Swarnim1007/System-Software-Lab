@@ -1,32 +1,50 @@
+/*
+ * ============================================================================
+ Name : 21w.c
+ Author : Swarnim Kukreti
+ Description : Write two programs so that both can communicate by FIFO -Use two way communications.
+ Date: 10th OCT, 2023.
+============================================================================
+*/
+
 #include <stdio.h>
 #include <stdlib.h>
-#include <string.h>
 #include <unistd.h>
 #include <fcntl.h>
+#include <string.h>
 
 int main() {
-    char *fifo_path = "myfifo";
+    const char *fifo_path = "myfifo";
+    int fd;
 
-    // Create the FIFO if it does not exist
-    if (mkfifo(fifo_path, 0666) == -1) {
-        perror("Error creating FIFO");
-        exit(EXIT_FAILURE);
-    }
-
-    // Open the FIFO for writing
-    int fd = open(fifo_path, O_WRONLY);
+    
+    fd = open(fifo_path, O_WRONLY);
     if (fd == -1) {
-        perror("Error opening FIFO for writing");
+        perror("open");
         exit(EXIT_FAILURE);
     }
 
-    // Write data to the FIFO
-    char message[] = "Hello from Writer";
-    write(fd, message, strlen(message));
+    char message[100];
 
-    // Close the FIFO
-    close(fd);
+    while (1) {
+        printf("Enter a message to send (or 'exit' to quit): ");
+        fgets(message, sizeof(message), stdin);
+
+       
+        if (write(fd, message, strlen(message) + 1) == -1) {
+            perror("write");
+            close(fd);
+            exit(EXIT_FAILURE);
+        }
+
+        if (strcmp(message, "exit\n") == 0) {
+            printf("Writer exiting...\n");
+            close(fd);
+            break;  
+        }
+    }
 
     return 0;
 }
+
 

@@ -3,11 +3,11 @@
  Name : 16.c
  Author : Swarnim Kukreti
  Description : Write a program to send and receive data from parent to child vice versa. Use two way
-communication.
+		communication.
  Date: 10th OCT, 2023.
 ============================================================================
 */
-
+#include <sys/wait.h>
 #include <stdio.h>
 #include <stdlib.h>
 #include <unistd.h>

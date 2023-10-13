@@ -17,7 +17,7 @@ Date: 10-october-2023
 
 int main() {
     // Open the FIFO for reading
-    char *fifoPath = "myfifo";  // Replace with your desired FIFO name
+    char *fifoPath = "myfifo";  
     int fd = open(fifoPath, O_RDONLY);
     if (fd == -1) {
         perror("open");

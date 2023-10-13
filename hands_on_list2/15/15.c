@@ -1,6 +1,6 @@
 /*
 ============================================================================
-Name : 15
+Name : 15.c
 Author :Swarnim Kukreti
 Description : Write a simple program to send some data from parent to the child process.
 Date: 10-october-2023

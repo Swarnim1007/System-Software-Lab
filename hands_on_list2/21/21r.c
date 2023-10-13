@@ -1,32 +1,54 @@
+/*
+ * ============================================================================
+ Name : 21r.c
+ Author : Swarnim Kukreti
+ Description : Write two programs so that both can communicate by FIFO -Use two way communications.
+ Date: 10th OCT, 2023.
+============================================================================
+*/
+
 #include <stdio.h>
 #include <stdlib.h>
-#include <string.h>
 #include <unistd.h>
 #include <fcntl.h>
+#include <string.h>
 
 int main() {
-    char *fifo_path = "myfifo";
+    const char *fifo_path = "myfifo";
+    int fd;
+    char buffer[100];
 
-    // Open the FIFO for reading
-    int fd = open(fifo_path, O_RDONLY);
+  
+    fd = open(fifo_path, O_RDONLY);
     if (fd == -1) {
-        perror("Error opening FIFO for reading");
+        perror("open");
         exit(EXIT_FAILURE);
     }
 
-    // Read data from the FIFO
-    char message[100];
-    read(fd, message, sizeof(message));
+    printf("Waiting for messages...\n");
 
-    // Print the received message
-    printf("Received message: %s\n", message);
+    while (1) {
+        
+        ssize_t bytes_read = read(fd, buffer, sizeof(buffer));
+        if (bytes_read == -1) {
+            perror("read");
+            close(fd);
+            exit(EXIT_FAILURE);
+        }
 
-    // Close the FIFO
+        printf("Received message: %s", buffer);
+
+     
+        if (strcmp(buffer, "exit\n") == 0) {
+            printf("Reader exiting...\n");
+            break; 
+        }
+    }
+
+   
     close(fd);
-
-    // Remove the FIFO file
-    unlink(fifo_path);
 
     return 0;
 }
+
 
