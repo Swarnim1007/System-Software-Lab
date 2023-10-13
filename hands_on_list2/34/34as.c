@@ -3,7 +3,7 @@
  Name : 34as.c
  Author : Swarnim Kukreti
  Description : Write a program to create a concurrent server.
-a. use fork
+	a. use fork
  Date: 12th OCT, 2023.
 ============================================================================
 */
@@ -63,7 +63,7 @@ int main() {
     }
 
     // Listen for incoming connections
-    if (listen(server_socket, 5) == -1) {
+    if (listen(server_socket, 1) == -1) {
         perror("Error listening");
         exit(EXIT_FAILURE);
     }
