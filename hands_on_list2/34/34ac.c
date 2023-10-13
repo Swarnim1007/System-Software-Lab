@@ -1,19 +1,10 @@
-/*
- * ============================================================================
- Name : 33.c
- Author : Swarnim Kukreti
- Description : Write a program to communicate between two machines using socket.
- Date: 12th OCT, 2023.
-============================================================================
-*/
 #include <stdio.h>
 #include <stdlib.h>
 #include <string.h>
 #include <unistd.h>
 #include <arpa/inet.h>
 
-#define SERVER_IP "172.16.145.2"
-#define PORT 12345
+#define PORT 12356
 #define MAX_BUFFER_SIZE 1024
 
 int main() {
@@ -31,32 +22,32 @@ int main() {
     // Prepare the server address structure
     server_addr.sin_family = AF_INET;
     server_addr.sin_port = htons(PORT);
-    server_addr.sin_addr.s_addr = inet_addr(SERVER_IP);
+    server_addr.sin_addr.s_addr = inet_addr("127.0.0.1"); // IP address of the server (localhost in this case)
 
     // Connect to the server
     if (connect(client_socket, (struct sockaddr*)&server_addr, sizeof(server_addr)) == -1) {
-        perror("Error connecting to server");
+        perror("Error connecting to the server");
+        close(client_socket);
         exit(EXIT_FAILURE);
     }
 
     // Send data to the server
-    strcpy(buffer, "Hello, Server!");
+    printf("Enter message to send to server: ");
+    fgets(buffer, sizeof(buffer), stdin);
     send(client_socket, buffer, strlen(buffer), 0);
-    printf("Sent: %s\n", buffer);
 
-    // Receive a response from the server
+    // Receive data from the server
     int bytes_received = recv(client_socket, buffer, sizeof(buffer), 0);
     if (bytes_received <= 0) {
-        perror("Error receiving data");
+        perror("Error receiving data from server");
     } else {
         buffer[bytes_received] = '\0';
-        printf("Received: %s\n", buffer);
+        printf("Received from server: %s", buffer);
     }
 
-    // Close the client socket
+    // Close the socket
     close(client_socket);
 
     return 0;
 }
-
 

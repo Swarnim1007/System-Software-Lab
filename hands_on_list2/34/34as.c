@@ -15,7 +15,7 @@ a. use fork
 #include <sys/socket.h>
 #include <sys/types.h>
 
-#define PORT 12345
+#define PORT 12356
 #define MAX_BUFFER_SIZE 1024
 
 void handle_client(int client_socket) {
